@@ -10,8 +10,8 @@ var removeItem = function(arr, item){
 }
 
 var cbFindSuccess = function (data, $scope) {
-    $scope.beers = data.data;
-    $scope.msg = 'List complete';
+    $scope.breweries = data.data;
+    $scope.message = 'List complete';
     console.log(data);
 };
 var cbFindError = function (error, $scope) {
@@ -38,12 +38,13 @@ angular.module('controllers.Breweries', []).
     ['$scope', '$http', 'BreweryService', 
     function ($scope, $http, BreweryService) {
       var Brewery = BreweryService;
-    
+      
       $scope.remove = function(brewery){
+        console.log('Remove', breweries);
         if(confirm('Are you sure? Brewery '+brewery.name+' will be removed.')){
           Brewery.remove(brewery).
           success(function (data) {
-            removeItem($scope.brewerys, beer);
+            removeItem($scope.breweries, brewery);
           }).
           error(function (error) {
               $scope.status = 'Unable to load beers: ' + error.message;
@@ -57,8 +58,9 @@ angular.module('controllers.Breweries', []).
     function ($scope, $http, BreweryService) {
 
       var Brewery = BreweryService;
-      Brewery.find().then(function(brewery){
-        cbFindSuccess(brewery, $scope);
+      Brewery.find().then(function(breweries){
+        console.log('Breweries: ', breweries);
+        cbFindSuccess(breweries, $scope);
       }, function(err){
         cbFindError(err, $scope);
       });
