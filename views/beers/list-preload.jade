@@ -1,7 +1,8 @@
 h3.title List of Beers
 p.message {{message}}
 
-ul
+
+ul(ng-init='atualizarBeers('+JSON.stringify(beers)+')')
   li(data-ng-repeat='beer in beers') 
     a(href='/beers/{{beer._id}}') 
       | {{beer.name}}

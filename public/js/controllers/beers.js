@@ -63,6 +63,11 @@ angular.module('controllers.Beers', []).
         cbFindError(err, $scope);
       });
 
+      $scope.atualizarBeers = function(beers){
+        $scope.beers = beers;
+        console.log('atualizarBeers beers', $scope.beers);
+      }
+
   }]).
   controller('BeerCreateController', 
     ['$scope', '$http',
