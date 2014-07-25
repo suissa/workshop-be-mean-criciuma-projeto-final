@@ -1,0 +1,11 @@
+h3.title List of Breweries
+p.message {{message}}
+
+ul
+  li(data-ng-repeat='brewery in breweries') 
+    a(href='/breweries/{{brewery._id}}') 
+      | {{brewery.name}}
+    a(href='/breweries/{{brewery._id}}/edit') 
+    span(data-ng-controller='RemoveBeer')
+      button(data-ng-click='remove(brewery)') REMOVER
+

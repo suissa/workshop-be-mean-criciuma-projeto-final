@@ -34,6 +34,10 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'expose/beers/remove',
       controller: 'BeerRemoveController'
     }).
+    when('/breweries', {
+      templateUrl: 'expose/breweries/list',
+      controller: 'BreweryListController'
+    }).
     otherwise({
       redirectTo: '/beers'
     });

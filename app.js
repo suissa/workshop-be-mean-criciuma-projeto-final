@@ -20,6 +20,7 @@ var app = module.exports = express();
 var api = {};
 api.name = require('./routes/api/name');
 api.beers = require('./routes/api/beers');
+api.breweries = require('./routes/api/breweries');
 
 /**
  * Configuration
@@ -61,6 +62,7 @@ app.use('/expose', expose);
 
 // JSON API
 app.use('/api/beers', api.beers);
+app.use('/api/breweries', api.breweries);
 app.use('/api/name', api.name);
 
 // redirect all others to the index (HTML5 history)

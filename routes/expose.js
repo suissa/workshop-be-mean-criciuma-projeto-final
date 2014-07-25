@@ -16,7 +16,7 @@ router.get('/:dir/:name', function(req, res) {
 router.get('/:dir/:name/preload', function(req, res) {
   var dir = req.params.dir;
   var name = req.params.name;
-  var url dir+'/'+name;
+  var url = dir+'/'+name;
   // pegar data e passar na rota
   Beer.retrieve(req, res, cb, url);
 });

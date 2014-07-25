@@ -3,5 +3,6 @@
 // Controllers 
 angular.module('myApp.controllers', 
   [
-    'controllers.Beers'
+    'controllers.Beers',
+    'controllers.Breweries'
   ]);
