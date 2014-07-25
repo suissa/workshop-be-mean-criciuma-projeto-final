@@ -169,7 +169,7 @@ angular.module('controllers.Beers', []).
         success(function(data){
           console.log(data);
           $scope.data = data;
-          $scope.msg = 'Beer ' +beer.name+ ' update successfully'; 
+          $scope.message = 'Beer ' +beer.name+ ' update successfully'; 
         }).
         error(function(err){
           console.log(err);
