@@ -3,6 +3,7 @@
 // Helpers
 
 var removeItem = function(arr, item){
+  console.log('removeItem', item, arr);
   var index = arr.indexOf(item);
   if (index > -1) {
     arr.splice(index, 1);
@@ -40,10 +41,11 @@ angular.module('controllers.Breweries', []).
       var Brewery = BreweryService;
       
       $scope.remove = function(brewery){
-        console.log('Remove', breweries);
+        console.log('Remove', brewery);
         if(confirm('Are you sure? Brewery '+brewery.name+' will be removed.')){
           Brewery.remove(brewery).
           success(function (data) {
+            console.log('SCOOOOPE', $scope.breweries);
             removeItem($scope.breweries, brewery);
           }).
           error(function (error) {
